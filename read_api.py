@@ -1,3 +1,4 @@
+import sys
 import requests
 
 def read_api(url, offset=0, limit=20):
@@ -9,21 +10,19 @@ def read_api(url, offset=0, limit=20):
         response.raise_for_status()
     except requests.exceptions.HTTPError as error:
         print(error)
+        sys.exit()
 
-    return response.content
+    return response.json()
 
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
     print(read_api(url, 0, 1))
 
     url = "https://pokeapi.co/api/v2/pokemon/"
-    print(read_api(url, 0, 1000))
+    print(read_api(url, 0, 5))
 
     url = "https://pokeapi.co/api/v2/pokemon234234/"
     read_api(url, 0, 5)
-
-    url = "https://pokeapi.co/api/v2/pokemon/"
-    print(read_api(url, 0, 10))
 
 
 if __name__ == '__main__':
