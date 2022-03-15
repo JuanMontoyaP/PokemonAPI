@@ -1,5 +1,9 @@
 import sys
 
+def concat_strings(string_list):
+    """Return a string resulting from joining a list of strings."""
+    return "".join(string_list)
+
 def key_value_json(json_file, key):
     """Returns the key value of a json file."""
     try:
