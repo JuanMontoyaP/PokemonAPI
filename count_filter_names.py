@@ -1,8 +1,8 @@
 from read_pokemons import read_pokemons
 from filtering_pokemons import get_pokemon_features, filtering_pokemons_names
 
-def count_filter_names(url):
-    """Count the number of names that have 'at' and two 'a's"""
+def count_filter_names(url="https://pokeapi.co/api/v2/pokemon/"):
+    """Count the number of names that have 'at' and two 'a's."""
     
     pokemons = read_pokemons(url)
     
