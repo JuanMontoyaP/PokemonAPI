@@ -1,6 +1,6 @@
 from pokemon_features import get_pokemon_features, get_pokemon_url
 from read_api import read_api
-from functions import key_value_json, concat_strings
+from functions import key_value_json, concat_strings, unique_items_in_list
 
 def get_pokemon_specie_url(pokemon_name):
     """Retrun the specie url API which the pokemon belongs to"""
@@ -24,11 +24,21 @@ def get_egg_group_url(egg_group):
     return egg_url
 
 def get_species_per_egg_group(egg_group):
+    """Get the species that belongs to an egg group"""
     url = get_egg_group_url(egg_group)
     egg_characteristics = read_api(url)
     egg_species = key_value_json(egg_characteristics, "pokemon_species")
     egg_species_names = get_pokemon_features(egg_species)
     return egg_species_names
+
+def get_species_per_different_groups(egg_groups):
+    """Return a list of species from different egg gropus"""
+    species = []
+
+    for egg_group in egg_groups:
+        species += get_species_per_egg_group(egg_group)
+
+    return unique_items_in_list(species)
 
 def main():
     # pokemon = "raichu"
@@ -42,9 +52,13 @@ def main():
 
     # print(get_pokemon_specie_url("raichu"))
 
-    print(get_egg_group("raichu"))
+    # print(get_egg_group("raichu"))
 
     # print(get_species_per_egg_group("monster"))
+
+    eggs = ['ground', 'fairy']
+
+    get_species_per_different_groups(eggs)
     
 
 if __name__ == "__main__":
