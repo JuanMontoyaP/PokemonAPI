@@ -46,9 +46,16 @@ def words_containing_substring(words, substring, times, max_times=None):
     """Return a list of filtered words that contains n times a substring or an interval of times."""
     return list(filter(lambda word: word_containing_substring(word, substring, times, max_times), words))
 
+def unique_items_in_list(my_list):
+    """Return a list with the unique elements in a list."""
+    return list(set(my_list))
+
 
 def main():
-    print(word_containing_substring("aaa", "a", 1, 3))
+    # print(word_containing_substring("aaa", "a", 1, 3))
+
+    my_list = [1, 2, 3, 4, 5, 5, 5, 5]
+    print(unique_items_in_list(my_list))
 
 if __name__ == '__main__':
     main()
