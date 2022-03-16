@@ -1,6 +1,7 @@
+from turtle import filling
 from read_pokemons import read_pokemons
-from functions import words_containing_substring, number_betwen_limits
-from pokemon_features import get_pokemon_features, get_pokemon_id
+from functions import words_containing_substring, number_betwen_limits, item_in_list
+from pokemon_features import get_pokemon_features, get_pokemon_id, get_pokemon_type
 
 def filtering_pokemons_names(pokemons):
     """Return a list of filtered pokemons names that contains 'at' and two 'a' in it."""
@@ -17,20 +18,27 @@ def filter_pokemon_list_id(pokemons_urls, min_id, max_id):
     """Filter a list of pokemons between min_id and max_id."""
     return list(filter(lambda pokemon: filtering_pokemon_id(pokemon, min_id, max_id), pokemons_urls))
 
+def filter_pokemon_type(pokemon_url, type="fighting"):
+    """Return True if the pokemon belongs to the type, otherwise return False."""
+    pokemon_types = get_pokemon_type(pokemon_url)
+    return item_in_list(type, pokemon_types)
+
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
     pokemons = read_pokemons(url)
 
     pokemons_urls = get_pokemon_features(pokemons, 'url')
 
-    # url = 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
+    url = 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
 
     # print(filtering_pokemon_id(url, 0, 22))
 
     # print(pokemons_urls)
     # print(filtering_pokemons_names(pokemons_urls))
 
-    print(filter_pokemon_list_id(pokemons_urls, 0, 151))
+    # first_gen_poke = filter_pokemon_list_id(pokemons_urls, 0, 151)
+
+    print(filter_pokemon_type(url))
 
 if __name__ == '__main__':
     main()

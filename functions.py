@@ -59,11 +59,17 @@ def delete_empty_strings_in_list(my_list):
     """Delete empty strings in a list"""
     return list(filter(bool, my_list))
 
+def item_in_list(item, my_list):
+    """Return True if the item is in the list, otherwise return False."""
+    return item in my_list
+
 def main():
     # print(word_containing_substring("aaa", "a", 1, 3))
 
     my_list = [1, 2, 3, 4, 5, 5, 5, 5]
     print(unique_items_in_list(my_list))
+
+    print(item_in_list(6, my_list))
 
 if __name__ == '__main__':
     main()
