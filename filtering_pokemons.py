@@ -1,6 +1,6 @@
 from read_pokemons import read_pokemons
-from functions import key_value_json, words_containing_substring
-from pokemon_features import get_pokemon_features
+from functions import words_containing_substring, number_betwen_limits
+from pokemon_features import get_pokemon_features, get_pokemon_id
 
 def filtering_pokemons_names(pokemons):
     """Return a list of filtered pokemons names that contains 'at' and two 'a' in it."""
@@ -8,11 +8,10 @@ def filtering_pokemons_names(pokemons):
     pokemon_names_filtered = words_containing_substring(pokemon_names_with_at, 'a', 2)
     return pokemon_names_filtered
     
-def filtering_pokemon_id(pokemons, min_id, max_id):
+def filtering_pokemon_id(pokemon_name, min_id, max_id):
     """Filter the pokemons between min_id and max_id."""
-
-    print(get_pokemon_features(pokemons) )
-    pass
+    pokemon_id = get_pokemon_id(pokemon_name)
+    return number_betwen_limits(pokemon_id, min_id, max_id)
 
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
@@ -22,7 +21,7 @@ def main():
 
     # print(filtering_pokemons_names(pokemon_names))
 
-    filtering_pokemon_id(pokemons, 0, 151)
+    print(filtering_pokemon_id("bulbasaur", 0, 151))
 
 if __name__ == '__main__':
     main()
