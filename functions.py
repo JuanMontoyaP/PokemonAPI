@@ -63,6 +63,10 @@ def item_in_list(item, my_list):
     """Return True if the item is in the list, otherwise return False."""
     return item in my_list
 
+def max_min_in_list(my_list):
+    """Get max and min from a list."""
+    return max(my_list), min(my_list)
+
 def main():
     # print(word_containing_substring("aaa", "a", 1, 3))
 
@@ -70,6 +74,8 @@ def main():
     print(unique_items_in_list(my_list))
 
     print(item_in_list(6, my_list))
+
+    print(max_min_in_list(my_list))
 
 if __name__ == '__main__':
     main()
