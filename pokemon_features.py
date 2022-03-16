@@ -28,8 +28,6 @@ def get_pokemon_id(pokemon_url):
     elif (split_url[-1].isnumeric()):
         return int(split_url[-1])
 
-
-
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
     response = read_api(url)

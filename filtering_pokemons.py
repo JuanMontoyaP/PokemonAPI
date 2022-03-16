@@ -13,9 +13,9 @@ def filtering_pokemon_id(pokemon_url, min_id, max_id):
     pokemon_id = get_pokemon_id(pokemon_url)
     return number_betwen_limits(pokemon_id, min_id, max_id)
 
-def filter_pokemon_list_id(pokemons, min_id, max_id):
+def filter_pokemon_list_id(pokemons_urls, min_id, max_id):
     """Filter a list of pokemons between min_id and max_id."""
-    return list(filter(lambda pokemon: filtering_pokemon_id(pokemon, min_id, max_id), pokemons))
+    return list(filter(lambda pokemon: filtering_pokemon_id(pokemon, min_id, max_id), pokemons_urls))
 
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
@@ -23,14 +23,14 @@ def main():
 
     pokemons_urls = get_pokemon_features(pokemons, 'url')
 
-    url = 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
+    # url = 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
 
-    print(filtering_pokemon_id(url, 0, 22))
+    # print(filtering_pokemon_id(url, 0, 22))
 
     # print(pokemons_urls)
     # print(filtering_pokemons_names(pokemons_urls))
 
-    # print(filter_pokemon_list_id(pokemons_urls[:200], 0, 151))
+    print(filter_pokemon_list_id(pokemons_urls, 0, 151))
 
 if __name__ == '__main__':
     main()
