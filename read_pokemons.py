@@ -3,6 +3,7 @@ from count_pokemons import total_number_pokemons
 from functions import key_value_json
 
 def read_pokemons(url):
+    """Get all the pokemon names and its API url in a list of dictionaries."""
     content = read_api(url)
     total_pokemons = total_number_pokemons(content)
 
