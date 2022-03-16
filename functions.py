@@ -12,7 +12,6 @@ def key_value_json(json_file, key):
         print(f'The key: {error} does not exist.')
         sys.exit()
 
-
 def times_word_in_substring(word: str, substring: str) -> int:
     """Return how many times a substring is in a word."""
     count = 0
@@ -25,7 +24,6 @@ def times_word_in_substring(word: str, substring: str) -> int:
 
         count += 1
     return count
-
 
 def word_containing_substring(word: str, substring: str, times: int = 1, max_times: int = None) -> bool:
     """Return True if a word contains a substring n times or between an interval of times, otherwise return False."""
@@ -50,6 +48,12 @@ def unique_items_in_list(my_list):
     """Return a list with the unique elements in a list."""
     return list(set(my_list))
 
+def number_betwen_limits(number: int, min_limit: int, max_limit: int) -> bool:
+    """Return True if the number is between the interval (limits included), otherwise return False."""
+    if number >= min_limit and number <= max_limit:
+        return True
+    else:
+        return False
 
 def main():
     # print(word_containing_substring("aaa", "a", 1, 3))

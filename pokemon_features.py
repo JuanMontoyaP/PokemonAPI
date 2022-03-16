@@ -11,7 +11,6 @@ def get_pokemon_features(pokemons, feature="name"):
         print(f'The key {error} does not exist in the dictionary.')
         sys.exit()
 
-
 def get_pokemon_url(pokemon_name):
     """Returns the url of the pokemon API."""
     url = "https://pokeapi.co/api/v2/pokemon/"
@@ -24,10 +23,7 @@ def get_pokemon_id(pokemon_name, pokemon_url=None):
         pokemon_url = get_pokemon_url(pokemon_name)
     
     pokemon = read_api(pokemon_url)
-
     return key_value_json(pokemon, "id")
-        
-
 
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
