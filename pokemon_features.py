@@ -1,7 +1,7 @@
 import sys
 
 from read_api import read_api
-from functions import key_value_json, concat_strings
+from functions import key_value_json, concat_strings, delete_empty_strings_in_list
 
 def get_pokemon_features(pokemons, feature="name"):
     """Return a list of features from different pokemons. Pokemons must be a dictionary list"""
@@ -20,7 +20,8 @@ def get_pokemon_url(pokemon_name):
 def get_pokemon_id(pokemon_url):
     """Get the pokemon ID with the pokemon url"""
     split_url = pokemon_url.split(sep='/')
-    
+    split_url = delete_empty_strings_in_list(split_url)
+
     if (split_url[-1].isalpha()):
         pokemon = read_api(pokemon_url)
         return key_value_json(pokemon, "id")

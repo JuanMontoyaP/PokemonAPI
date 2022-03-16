@@ -55,6 +55,10 @@ def number_betwen_limits(number: int, min_limit: int, max_limit: int) -> bool:
     else:
         return False
 
+def delete_empty_strings_in_list(my_list):
+    """Delete empty strings in a list"""
+    return list(filter(bool, my_list))
+
 def main():
     # print(word_containing_substring("aaa", "a", 1, 3))
 

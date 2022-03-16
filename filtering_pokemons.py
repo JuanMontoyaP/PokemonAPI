@@ -8,9 +8,9 @@ def filtering_pokemons_names(pokemons):
     pokemon_names_filtered = words_containing_substring(pokemon_names_with_at, 'a', 2)
     return pokemon_names_filtered
     
-def filtering_pokemon_id(pokemon_name, min_id, max_id):
+def filtering_pokemon_id(pokemon_url, min_id, max_id):
     """Filter the pokemons between min_id and max_id."""
-    pokemon_id = get_pokemon_id(pokemon_name)
+    pokemon_id = get_pokemon_id(pokemon_url)
     return number_betwen_limits(pokemon_id, min_id, max_id)
 
 def filter_pokemon_list_id(pokemons, min_id, max_id):
@@ -21,15 +21,16 @@ def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
     pokemons = read_pokemons(url)
 
-    pokemon_names = get_pokemon_features(pokemons)
+    pokemons_urls = get_pokemon_features(pokemons, 'url')
 
-    # print(filtering_pokemons_names(pokemon_names))
+    url = 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
 
-    print(filter_pokemon_list_id(pokemon_names[:200], 0, 151))
+    print(filtering_pokemon_id(url, 0, 22))
+
+    # print(pokemons_urls)
+    # print(filtering_pokemons_names(pokemons_urls))
+
+    # print(filter_pokemon_list_id(pokemons_urls[:200], 0, 151))
 
 if __name__ == '__main__':
-    # main()
-
-    url = "https://pokeapi.co/api/v2/pokemon/"
-
-    print(url.split(sep='/'))
+    main()
