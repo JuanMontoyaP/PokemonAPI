@@ -28,18 +28,29 @@ def get_pokemon_id(pokemon_url):
     elif (split_url[-1].isnumeric()):
         return int(split_url[-1])
 
+def get_pokemon_type(pokemon_url):
+    """Get the pokemon type from the pokemon API url."""
+    pokemon = read_api(pokemon_url)
+    
+    pokemon_types = get_pokemon_features(key_value_json(pokemon, "types"), "type")
+    pokemon_types_names = get_pokemon_features(pokemon_types)
+    return pokemon_types_names
+
 def main():
-    url = "https://pokeapi.co/api/v2/pokemon/"
-    response = read_api(url)
+    # url = "https://pokeapi.co/api/v2/pokemon/"
+    # response = read_api(url)
 
-    pokemons = key_value_json(response, 'results')
+    # pokemons = key_value_json(response, 'results')
 
-    # print(get_pokemon_features(pokemons))
+    # # print(get_pokemon_features(pokemons))
 
-    # print(get_pokemon_url("raichu"))
+    # # print(get_pokemon_url("raichu"))
 
-    print(get_pokemon_id(get_pokemon_url("bulbasaur")))
-    print(get_pokemon_id(get_pokemon_url("1")))
+    # print(get_pokemon_id(get_pokemon_url("bulbasaur")))
+    # print(get_pokemon_id(get_pokemon_url("1")))
+
+    url = "https://pokeapi.co/api/v2/pokemon/56/"
+    print(get_pokemon_type(url))
 
 if __name__ == "__main__":
     main()
