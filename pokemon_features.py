@@ -18,6 +18,16 @@ def get_pokemon_url(pokemon_name):
     pokemon_url = concat_strings([url, pokemon_name])
     return pokemon_url
 
+def get_pokemon_id(pokemon_name, pokemon_url=None):
+    """Get the pokemon ID with the pokemon name or pokemon url"""
+    if not pokemon_url:
+        pokemon_url = get_pokemon_url(pokemon_name)
+    
+    pokemon = read_api(pokemon_url)
+
+    return key_value_json(pokemon, "id")
+        
+
 
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
@@ -25,9 +35,11 @@ def main():
 
     pokemons = key_value_json(response, 'results')
 
-    print(get_pokemon_features(pokemons))
+    # print(get_pokemon_features(pokemons))
 
-    print(get_pokemon_url("raichu"))
+    # print(get_pokemon_url("raichu"))
+
+    get_pokemon_id("bulbasaur")
 
 if __name__ == "__main__":
     main()
