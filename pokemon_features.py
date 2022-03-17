@@ -4,7 +4,7 @@ from read_api import read_api
 from functions import key_value_json, concat_strings, delete_empty_strings_in_list
 
 def get_pokemon_features(pokemons, feature="name"):
-    """Return a list of features from different pokemons. Pokemons must be a dictionary list"""
+    """Return a list of features from different pokemons. Pokemons must be a list of dictionaries"""
     try :
         return [pokemon[feature] for pokemon in pokemons]
     except KeyError as error:
