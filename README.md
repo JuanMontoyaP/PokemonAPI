@@ -10,4 +10,4 @@ This project is about ingesting the [Pokemon API](https://pokeapi.co/) API and a
 
 In the [main](main.py) file there are the three functions that answer each questions. The function called `count_filter_names()` answer the first question. The function `how_many_species_can_procreate()` answers the second question and `get_max_min_weight()` the third one.
 
-I used python 3.10.2 version.
+I used python 3.10.2 version. The file [requirements.txt](requirements.txt) has the libraries and their versions used in this project.
