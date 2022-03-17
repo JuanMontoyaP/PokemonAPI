@@ -5,15 +5,16 @@ from pokemon_features import get_pokemon_features
 from filtering_pokemons import filter_pokemon_list_id
 
 def get_pokemon_weight(url_pokemon):
+    """Return the pokemon weight from the url API of the pokemon."""
     pokemon = read_api(url_pokemon)
     return key_value_json(pokemon, "weight")
 
 def get_pokemon_weights_list(urls_pokemon):
-    """Return a list of the weights of the pokemons"""
+    """Return a list of the weights of the pokemons. urls_pokemon is a list of pokemon urls."""
     return list(map(get_pokemon_weight, urls_pokemon))
 
 def get_max_min_weight(type="fighting", min_id=0, max_id=151):
-    """Get max and min weight for a group of pokemons (pokemon type and its id)"""
+    """Get max and min weight for a group of pokemons (pokemon type and its id)."""
     same_type_pokemons = get_pokemons_belong_to_type(type)
     same_type_pokemons_urls = get_pokemon_features(same_type_pokemons, 'url')
     same_type_id = filter_pokemon_list_id(same_type_pokemons_urls, min_id, max_id)

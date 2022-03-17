@@ -10,12 +10,12 @@ def filtering_pokemons_names(pokemons):
     return pokemon_names_filtered
     
 def filtering_pokemon_id(pokemon_url, min_id, max_id):
-    """Filter the pokemons between min_id and max_id."""
+    """Filter the pokemons between min_id and max_id. Pokemon_url is the url API of the pokemon."""
     pokemon_id = get_pokemon_id(pokemon_url)
     return number_betwen_limits(pokemon_id, min_id, max_id)
 
 def filter_pokemon_list_id(pokemons_urls, min_id, max_id):
-    """Filter a list of pokemons between min_id and max_id."""
+    """Filter a list of pokemons between min_id and max_id. Pokemons_url are a list of the url of the pokemons."""
     return list(filter(lambda pokemon: filtering_pokemon_id(pokemon, min_id, max_id), pokemons_urls))
 
 def main():

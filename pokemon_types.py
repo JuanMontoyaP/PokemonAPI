@@ -23,6 +23,7 @@ def get_url_type(type, url = "https://pokeapi.co/api/v2/type/"):
     return type_url
 
 def get_pokemons_belong_to_type(type="fighting"):
+    """Get all the pokemons that belongs to a certain type."""
     url = get_url_type(type)
     pokemons = get_pokemon_features(key_value_json(read_api(url), 'pokemon'), 'pokemon')
     return pokemons
