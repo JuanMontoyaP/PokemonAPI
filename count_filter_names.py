@@ -5,11 +5,8 @@ def count_filter_names(url="https://pokeapi.co/api/v2/pokemon/"):
     """Count the number of names that have 'at' and two 'a's."""
     
     pokemons = read_pokemons(url)
-    
     pokemon_names = get_pokemon_features(pokemons, feature="name") # Get all the pokemon names 
-
     filtered_names = filtering_pokemons_names(pokemon_names) # Filter all the names 
-
     return len(filtered_names)
 
 def main():

@@ -18,17 +18,6 @@ def filter_pokemon_list_id(pokemons_urls, min_id, max_id):
     """Filter a list of pokemons between min_id and max_id."""
     return list(filter(lambda pokemon: filtering_pokemon_id(pokemon, min_id, max_id), pokemons_urls))
 
-# def filter_pokemon_type(pokemon_url, type="fighting"):
-#     """Return True if the pokemon belongs to the type, otherwise return False."""
-#     pokemon_types = get_pokemon_type(pokemon_url)
-#     return item_in_list(type, pokemon_types)
-
-# def filter_pokemon_list_type(pokemons_urls, type="fighting"):
-#     """Return the pokemon urls that belongs to the same type."""
-#     # for pokemon in pokemons_urls:
-#     #     print(pokemon)
-#     return list(filter(lambda pokemon_url: filter_pokemon_type(pokemon_url, type), pokemons_urls))
-
 def main():
     url = "https://pokeapi.co/api/v2/pokemon/"
     pokemons = read_pokemons(url)

@@ -34,7 +34,6 @@ def get_species_per_egg_group(egg_group):
 def get_species_per_different_groups(egg_groups):
     """Return a list of species from different egg gropus"""
     species = []
-
     for egg_group in egg_groups:
         species += get_species_per_egg_group(egg_group)
 

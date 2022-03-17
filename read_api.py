@@ -3,7 +3,6 @@ import requests
 
 def read_api(url, offset=0, limit=20):
     """This function returns a json format of the content of an API in that uses query parameters offset and limit"""
-
     args = {"offset": offset, "limit": limit}
     try: 
         response = requests.get(url, params=args)
